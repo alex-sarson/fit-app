@@ -2,6 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import roleRoute from './routes/role.js';
+import authRoute from './routes/auth.js';
 
 dotenv.config();
 
@@ -11,6 +12,7 @@ const port = 8800;
 // configure middleware
 app.use(express.json());
 app.use('/api/role', roleRoute);
+app.use('/api/auth', authRoute);
 
 // db connection - using mongoose for orm
 const connectMongoDB = async () => {
