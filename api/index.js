@@ -8,6 +8,10 @@ dotenv.config();
 const app = express();
 const port = 8800;
 
+// configure middleware
+app.use(express.json());
+app.use('/api/role', roleRoute);
+
 // db connection - using mongoose for orm
 const connectMongoDB = async () => {
   try {
@@ -17,8 +21,6 @@ const connectMongoDB = async () => {
     throw error;
   }
 };
-
-app.use('/api/role', roleRoute);
 
 app.listen(port, () => {
   connectMongoDB();
