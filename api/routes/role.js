@@ -1,21 +1,23 @@
 import express from 'express';
-import Role from '../models/Role.js';
+import {
+  createRole,
+  deleteRole,
+  getAllRoles,
+  updateRole,
+} from '../controllers/role.controller.js';
 
 const router = express.Router();
 
 // create a new role in db
-router.post('/create', async (req, res, next) => {
-  try {
-    if (req.body.role && req.body.role !== '') {
-      const newRole = new Role(req.body);
-      await newRole.save();
-      return res.send('Role Created!');
-    } else {
-      return res.status(400).send('Bad Request');
-    }
-  } catch (error) {
-    return res.status(500).send('Internal Server Error');
-  }
-});
+router.post('/create', createRole);
+
+// update role in db
+router.put('/update/:id', updateRole);
+
+// get all the roles from db
+router.get('/getAll', getAllRoles);
+
+// delete role from db
+router.delete('/deleteRole/:id', deleteRole);
 
 export default router;
