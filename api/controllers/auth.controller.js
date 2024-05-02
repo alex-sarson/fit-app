@@ -17,3 +17,23 @@ export const register = async (req, res, next) => {
   await newUser.save();
   return res.status(200).send('User registered successfully!');
 };
+
+export const login = async (req, res, next) => {
+  try {
+    const user = await User.findOne({ email: req.body.email });
+    if (!user) {
+      return res.status(404).send('User not found');
+    }
+    // compare(<user input pass from body>, <user password from db>)
+    const isPasswordCorrect = await bcrypt.compare(
+      req.body.password,
+      user.password
+    );
+    if (!isPasswordCorrect) {
+      return res.status(400).send('Password is incorrect');
+    }
+    return res.status(200).send('Login is successful!');
+  } catch (error) {
+    return res.status(500).send('Something went wrong');
+  }
+};
