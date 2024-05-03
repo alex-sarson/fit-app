@@ -1,3 +1,3 @@
 # Fit App
 
-currently following a youtube tutorial series for the authentication setup: https://youtu.be/QZ3YLab3EKk?si=keryCrc4M9AHZDfR
+currently following a youtube tutorial series for the authentication setup: https://www.youtube.com/watch?v=1M_mYrTNWCU
