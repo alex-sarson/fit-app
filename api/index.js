@@ -3,6 +3,8 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import roleRoute from './routes/role.js';
 import authRoute from './routes/auth.js';
+import userRoute from './routes/user.js';
+import cookieParser from 'cookie-parser';
 
 dotenv.config();
 
@@ -11,8 +13,10 @@ const port = 8800;
 
 // configure middleware
 app.use(express.json());
+app.use(cookieParser());
 app.use('/api/role', roleRoute);
 app.use('/api/auth', authRoute);
+app.use('/api/user', userRoute);
 
 // response handler middleware
 app.use((obj, req, res, next) => {
