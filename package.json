@@ -8,7 +8,7 @@
     "start": "nodemon api/index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Alex Sarson",
   "license": "ISC",
   "description": "The backend for fit.io",
   "dependencies": {
