@@ -20,3 +20,21 @@ export const getUserById = async (req, res, next) => {
     return next(createError(500, 'Internal server error'));
   }
 };
+
+export const updateUser = async (req, res, next) => {
+  try {
+    const user = await User.findById({ _id: req.params.id });
+    if (user) {
+      const newData = await User.findByIdAndUpdate(
+        req.params.id,
+        { $set: req.body },
+        { new: true }
+      );
+      return next(createSuccess(200, 'User updated', newData));
+    } else {
+      return next(createError(404, 'User not found'));
+    }
+  } catch (error) {
+    return next(createError(500, 'Internal server error'));
+  }
+};
