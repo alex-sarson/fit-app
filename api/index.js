@@ -34,7 +34,7 @@ app.use((obj, req, res, next) => {
 const connectMongoDB = async () => {
   try {
     await mongoose.connect(process.env.FIT_MONGO_AUTHDB_URL);
-    console.log('connected to db');
+    console.log('Connected to db');
   } catch (error) {
     throw error;
   }
@@ -42,5 +42,5 @@ const connectMongoDB = async () => {
 
 app.listen(port, () => {
   connectMongoDB();
-  console.log(`connected to ${port}!!!`);
+  console.log(`Connected to ${port}`);
 });
