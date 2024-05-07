@@ -7,7 +7,7 @@ export const createRole = async (req, res, next) => {
     if (req.body.role && req.body.role !== '') {
       const newRole = new Role(req.body);
       await newRole.save();
-      return next(createSuccess(200, 'Role created!'));
+      return next(createSuccess(200, 'Role created!', newRole));
     } else {
       return next(createError(400, 'Bad request'));
     }
@@ -25,7 +25,7 @@ export const updateRole = async (req, res, next) => {
         { $set: req.body },
         { new: true }
       );
-      return next(createSuccess(200, 'Role updated'));
+      return next(createSuccess(200, 'Role updated', newData));
     } else {
       return next(createError(404, 'Role not found'));
     }
