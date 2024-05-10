@@ -5,6 +5,8 @@ import roleRoute from './routes/role.js';
 import authRoute from './routes/auth.js';
 import userRoute from './routes/user.js';
 import workoutRoute from './routes/workout.js';
+import macroRoute from './routes/macro.js';
+import entryRoute from './routes/entry.js';
 import cookieParser from 'cookie-parser';
 
 dotenv.config();
@@ -19,6 +21,8 @@ app.use('/api/role', roleRoute);
 app.use('/api/auth', authRoute);
 app.use('/api/user', userRoute);
 app.use('/api/workout', workoutRoute);
+app.use('/api/macro', macroRoute);
+app.use('/api/entry', entryRoute);
 
 // response handler middleware
 app.use((obj, req, res, next) => {

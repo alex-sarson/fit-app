@@ -4,5 +4,4 @@ currently following a youtube tutorial series for the authentication setup: http
 
 ## TODO:
 
-- create controllers for Entry and Macro models
-- create middleware for the above
+- test entry route through postman
