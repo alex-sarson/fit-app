@@ -6,11 +6,6 @@ const MacroSchema = mongoose.Schema(
       type: String,
       required: true,
     },
-    amount: {
-      type: Number,
-      required: false,
-      default: 0,
-    },
   },
   {
     timestamps: true,

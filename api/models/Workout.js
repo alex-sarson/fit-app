@@ -2,21 +2,11 @@ import mongoose from 'mongoose';
 
 const WorkoutSchema = mongoose.Schema(
   {
-    name: {
-      type: String,
-      required: true,
-    },
+    name: String,
     exercises: [
       {
-        name: {
-          type: String,
-          required: true,
-        },
+        name: String,
         sets: {
-          type: Number,
-          required: true,
-        },
-        reps: {
           type: Number,
           required: true,
         },

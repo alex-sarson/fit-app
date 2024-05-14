@@ -4,18 +4,25 @@ const EntrySchema = mongoose.Schema(
   {
     date: {
       type: Date,
-      required: true,
+      default: Date.now,
       unique: true,
     },
-    macro: {
-      type: [Schema.Types.ObjectId],
-      required: false,
-      ref: 'Macro',
-    },
+    macros: [
+      {
+        macro: {
+          type: [Schema.Types.ObjectId],
+          ref: 'Macro',
+        },
+        amount: Number,
+      },
+    ],
     workout: {
-      type: [Schema.Types.ObjectId],
-      required: false,
-      ref: 'Workout',
+      session: {
+        type: [Schema.Types.ObjectId],
+        required: false,
+        ref: 'Workout',
+      },
+      reps: Number,
     },
   },
   {
